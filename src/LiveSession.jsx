@@ -365,20 +365,25 @@ export default function CompleteTeachingInterface() {
   const [activePoll, setActivePoll] = useState(null);
   const [pollResults, setPollResults] = useState(null);
   
-  // Comprehensive doubt data across all categories
-  const clubbedDoubts = [
-    // Algebra Doubts
+  // Comprehensive doubt data with sample teacher response
+  const [clubbedDoubts, setClubbedDoubts] = useState([
     {
       id: 'alg1',
       summary: "Quadratic formula applications",
       category: "Algebra",
       urgency: "high",
       subDoubts: [
-        { id: 'alg1-1', text: "When to use quadratic formula vs factoring?", students: 12, upvotes: 8, timestamp: "12:45" },
-        { id: 'alg1-2', text: "Real-world applications of the formula", students: 9, upvotes: 6, timestamp: "12:50" },
-        { id: 'alg1-3', text: "Why does discriminant matter practically?", students: 7, upvotes: 5, timestamp: "12:55" }
+        { id: 'alg1-1', text: "When to use quadratic formula vs factoring?", students: 12, timestamp: "12:45" },
+        { id: 'alg1-2', text: "Real-world applications of the formula", students: 9, timestamp: "12:50" }
       ],
-      aiInsight: "Students need help connecting formulas to real applications"
+      aiInsight: "Students need help connecting formulas to real applications",
+      teacherResponse: {
+        text: "The quadratic formula works for all cases, but factoring is faster when the equation is factorable. For real-world applications, think about projectile motion - the path of a ball follows a quadratic curve!",
+        timestamp: "12:55",
+        attachment: { type: 'image', name: 'projectile-example.png' },
+        upvotes: 15,
+        downvotes: 2
+      }
     },
     {
       id: 'alg2',
@@ -386,94 +391,29 @@ export default function CompleteTeachingInterface() {
       category: "Algebra",
       urgency: "medium",
       subDoubts: [
-        { id: 'alg2-1', text: "How to factor trinomials with a≠1?", students: 9, upvotes: 6, timestamp: "13:00" },
-        { id: 'alg2-2', text: "When to use grouping method?", students: 5, upvotes: 3, timestamp: "13:05" }
+        { id: 'alg2-1', text: "How to factor trinomials with a≠1?", students: 9, timestamp: "13:00" }
       ],
-      aiInsight: "Visual demonstrations would help with factoring steps"
+      aiInsight: "Visual demonstrations would help with factoring steps",
+      teacherResponse: null
     },
-    {
-      id: 'alg3',
-      summary: "Completing the square method",
-      category: "Algebra",
-      urgency: "medium",
-      subDoubts: [
-        { id: 'alg3-1', text: "Why add (b/2)² to both sides?", students: 8, upvotes: 5, timestamp: "13:10" },
-        { id: 'alg3-2', text: "How to handle odd coefficients?", students: 6, upvotes: 4, timestamp: "13:15" }
-      ],
-      aiInsight: "Students need step-by-step breakdown of the process"
-    },
-    
-    // Geometry Doubts
-    {
-      id: 'geo1',
-      summary: "Graphing quadratic functions",
-      category: "Geometry",
-      urgency: "medium",
-      subDoubts: [
-        { id: 'geo1-1', text: "How to find vertex from standard form?", students: 10, upvotes: 7, timestamp: "13:20" },
-        { id: 'geo1-2', text: "What does axis of symmetry represent?", students: 7, upvotes: 5, timestamp: "13:25" }
-      ],
-      aiInsight: "Connecting algebraic and graphical representations needed"
-    },
-    {
-      id: 'geo2',
-      summary: "Parabola properties",
-      category: "Geometry",
-      urgency: "low",
-      subDoubts: [
-        { id: 'geo2-1', text: "How does 'a' coefficient affect width?", students: 6, upvotes: 4, timestamp: "13:30" }
-      ],
-      aiInsight: "Interactive graphing exploration would be beneficial"
-    },
-    
-    // Word Problems
     {
       id: 'wp1',
       summary: "Quadratic word problems",
       category: "Application",
       urgency: "high",
       subDoubts: [
-        { id: 'wp1-1', text: "How to set up projectile motion problems?", students: 14, upvotes: 9, timestamp: "13:35" },
-        { id: 'wp1-2', text: "Finding maximum area with fixed perimeter", students: 11, upvotes: 7, timestamp: "13:40" }
+        { id: 'wp1-1', text: "How to set up projectile motion problems?", students: 14, timestamp: "13:35" }
       ],
-      aiInsight: "Students struggle with translating word problems to equations"
-    },
-    
-    // Conceptual Understanding
-    {
-      id: 'con1',
-      summary: "Nature of roots",
-      category: "Concepts",
-      urgency: "medium",
-      subDoubts: [
-        { id: 'con1-1', text: "What does discriminant tell us about roots?", students: 9, upvotes: 6, timestamp: "13:45" },
-        { id: 'con1-2', text: "Why can quadratics have 2, 1, or 0 real roots?", students: 7, upvotes: 5, timestamp: "13:50" }
-      ],
-      aiInsight: "Need more visual examples of different root cases"
+      aiInsight: "Students struggle with translating word problems to equations",
+      teacherResponse: null
     }
-  ];
+  ]);
 
   // All individual doubts
   const allDoubts = [
-    // Algebra Doubts
     { id: 'alg-d1', text: "Why does the discriminant matter?", student: "Alice", timestamp: "12:38", category: "Algebra" },
     { id: 'alg-d2', text: "Can we derive the quadratic formula?", student: "Bob", timestamp: "12:42", category: "Algebra" },
-    { id: 'alg-d3', text: "What's the difference between roots and zeros?", student: "Charlie", timestamp: "12:47", category: "Algebra" },
-    { id: 'alg-d4', text: "How to check if factoring is correct?", student: "Dana", timestamp: "12:52", category: "Algebra" },
-    { id: 'alg-d5', text: "When to use completing the square method?", student: "Eve", timestamp: "12:57", category: "Algebra" },
-    
-    // Geometry Doubts
-    { id: 'geo-d1', text: "How to find vertex from standard form?", student: "Frank", timestamp: "13:02", category: "Geometry" },
-    { id: 'geo-d2', text: "What does the axis of symmetry represent?", student: "Grace", timestamp: "13:07", category: "Geometry" },
-    { id: 'geo-d3', text: "How does 'a' coefficient affect the graph?", student: "Henry", timestamp: "13:12", category: "Geometry" },
-    
-    // Word Problems
-    { id: 'wp-d1', text: "How to set up projectile motion equations?", student: "Ivy", timestamp: "13:17", category: "Application" },
-    { id: 'wp-d2', text: "Finding maximum area with fixed perimeter", student: "Jack", timestamp: "13:22", category: "Application" },
-    
-    // Conceptual Questions
-    { id: 'con-d1', text: "Why can quadratics have 0 real solutions?", student: "Kara", timestamp: "13:27", category: "Concepts" },
-    { id: 'con-d2', text: "What does negative discriminant mean?", student: "Leo", timestamp: "13:32", category: "Concepts" }
+    { id: 'alg-d3', text: "What's the difference between roots and zeros?", student: "Charlie", timestamp: "12:47", category: "Algebra" }
   ];
 
   // Handle teacher response
@@ -586,7 +526,7 @@ export default function CompleteTeachingInterface() {
       </div>
 
       {/* Right Panel - AI Assistant */}
-      <div className="w-[500px] flex flex-col bg-white border-l border-gray-200 shadow-xl">
+      <div className="w-96 flex flex-col bg-white border-l border-gray-200 shadow-xl">
         {/* Panel Header */}
         <div className="p-4 border-b border-gray-200 bg-gradient-to-r from-indigo-50 to-purple-50">
           <div className="flex items-center justify-between">
