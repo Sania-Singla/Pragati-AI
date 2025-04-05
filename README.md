@@ -5,7 +5,7 @@ EduAI is an AI-powered web platform enabling real-time student doubt resolution 
 ---
 
 # 🔗 Prototype 
-![EduAI.com](https://pragati-ediai.onrender.com)
+![EduAI.com](https://pragati-eduai.onrender.com)
 
 ## 🖥 Frontend – React.js, Chart.js
 
