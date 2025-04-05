@@ -25,6 +25,8 @@ EduAI is an AI-powered web platform enabling real-time student doubt resolution 
 ## Live session view
 GET /        
 ![Live Session](https://res.cloudinary.com/dwcne31bv/image/upload/v1743887629/kbn75hj6d9buoznwxauh.png) 
+
+## AI suggested polls
 ![Auto Suggested Poll](https://res.cloudinary.com/dwcne31bv/image/upload/v1743887396/wgwgyurigahdjabfbo2k.png) 
 
 ## AI-generated test
