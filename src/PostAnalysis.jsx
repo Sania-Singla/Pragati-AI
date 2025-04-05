@@ -1,10 +1,13 @@
 import { Doughnut, Bar } from 'react-chartjs-2';
 import { Chart, ArcElement, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
+import { useNavigate } from 'react-router-dom';
 
 // Register Chart.js components
 Chart.register(ArcElement, CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 export default function PostAnalysis() {
+  const navigate = useNavigate();
+  
   const topics = [
     {
       name: "Quadratic Equations",
@@ -124,7 +127,7 @@ export default function PostAnalysis() {
               <span className="mr-1">📤</span>
               Export
             </button>
-            <button className="px-3 py-1.5 text-sm bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition flex items-center">
+            <button onClick={()=>navigate("/test")} className="px-3 py-1.5 text-sm bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition flex items-center">
               <span className="mr-1">✏️</span>
               Generate Test
             </button>

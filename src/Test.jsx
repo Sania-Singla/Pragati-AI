@@ -81,12 +81,12 @@ export default function Test() {
       <div className="min-h-screen bg-gray-50 p-5">
         <div className="max-w-4xl mx-auto">
           {/* Header with Player Stats */}
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
             <div>
               <h1 className="text-3xl font-bold text-gray-800">Math Quest</h1>
               <p className="text-gray-600">Earn points, unlock achievements!</p>
             </div>
-            <div className="flex items-center space-x-4 bg-white p-3 rounded-lg shadow-sm">
+            <div className="flex items-center justify-evenly space-x-4 bg-white p-3 rounded-lg shadow-sm">
               <div className="text-center">
                 <div className="text-2xl">{playerStats.avatar}</div>
                 <div className="text-xs">Level {playerStats.level}</div>
@@ -239,13 +239,13 @@ export default function Test() {
           </div>
   
           {/* Test Actions - Now as Game Controls */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
-            <div className="flex justify-between items-center">
+          <div className="bg-white rounded-xl mb-34 shadow-sm border border-gray-200 p-4">
+            <div className="flex md:flex-row flex-col md:justify-between gap-4 md:items-center">
               <div>
                 <h3 className="font-medium">Quest Controls</h3>
                 <p className="text-sm text-gray-500">Manage your adventure</p>
               </div>
-              <div className="flex space-x-3">
+              <div className="flex space-x-3 flex-col md:flex-row gap-3">
                 <button className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition flex items-center">
                   <span className="mr-2">🔄</span>
                   Shuffle Challenges

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Priority Badge Component
 const PriorityBadge = ({ urgency }) => {
@@ -364,6 +365,7 @@ export default function CompleteTeachingInterface() {
   const [showPollModal, setShowPollModal] = useState(false);
   const [activePoll, setActivePoll] = useState(null);
   const [pollResults, setPollResults] = useState(null);
+  const navigate = useNavigate();
   
   // Comprehensive doubt data with sample teacher response
   const [clubbedDoubts, setClubbedDoubts] = useState([
@@ -460,11 +462,11 @@ export default function CompleteTeachingInterface() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50 font-sans overflow-hidden">
+    <div className="flex flex-col md:flex-row h-screen bg-gray-50 font-sans overflow-hidden">
       {/* Left Panel - Class Interface */}
       <div className="flex-1 flex flex-col border-r border-gray-200 bg-white">
         {/* Class Header */}
-        <div className="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-[14px] flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="p-2 bg-white/20 rounded-lg">
               <span className="text-xl">📐</span>
@@ -518,7 +520,7 @@ export default function CompleteTeachingInterface() {
             <button className="px-4 py-2 bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg transition" title="Open teaching resources">
               Resources
             </button>
-            <button className="px-4 py-2 bg-red-600 text-white hover:bg-red-700 rounded-lg transition" title="End the current session">
+            <button onClick={()=>navigate('/post')} className="px-4 py-2 bg-red-600 text-white hover:bg-red-700 rounded-lg transition" title="End the current session">
               End Class
             </button>
           </div>
@@ -526,7 +528,7 @@ export default function CompleteTeachingInterface() {
       </div>
 
       {/* Right Panel - AI Assistant */}
-      <div className="w-96 flex flex-col bg-white border-l border-gray-200 shadow-xl">
+      <div className="md:w-100 flex w-full flex-col bg-white border-l border-gray-200 shadow-xl">
         {/* Panel Header */}
         <div className="p-4 border-b border-gray-200 bg-gradient-to-r from-indigo-50 to-purple-50">
           <div className="flex items-center justify-between">
@@ -613,12 +615,12 @@ export default function CompleteTeachingInterface() {
         <div className="p-4 border-t border-gray-200 bg-white">
           <div className="grid grid-cols-2 gap-3">
             <button 
-              className="px-4 py-2 bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg transition flex items-center justify-center space-x-2"
+              className="text-nowrap px-2 py-2 bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg transition flex items-center justify-center space-x-2"
               onClick={() => setShowInterventionModal(true)}
               title="Get AI teaching suggestions"
             >
               <span>💡</span>
-              <span>Suggest Intervention</span>
+              <span>Get Intervention</span>
             </button>
             <button 
               className="px-4 py-2 bg-white border border-indigo-600 text-indigo-600 hover:bg-indigo-50 rounded-lg transition flex items-center justify-center space-x-2"
