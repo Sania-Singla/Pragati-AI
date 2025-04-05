@@ -1,12 +1,69 @@
-# React + Vite
+# EduAI – Smart Doubt Resolution System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EduAI is an AI-powered web platform enabling real-time student doubt resolution and personalized test generation for teachers.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🖥 Frontend – React.js, Chart.js
 
-## Expanding the ESLint configuration
+- Built with React.js for responsive student-teacher interface.
+- Chart.js used for interactive analytics visualizations.
+- Students submit doubts; teachers track engagement, assign AI-curated tests.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🔁 Backend & APIs – Node.js, Express.js
+
+- RESTful API using Node.js & Express.js.
+- Handles sessions, doubts, topic mapping.
+- Routes:   
+  - GET / (live session)
+  - GET /test  (for auto test generation)
+  - GET /post  (for post analysis report of the session) 
+
+---
+
+## 🧠 AI/ML Engine – SBERT, FAISS, T5, RoBERTa, Hydra
+
+- SBERT + FAISS: Semantic clustering of doubts.
+- T5: Generates test questions.
+- RoBERTa: Subject-wise classification.
+- Hydra: Suggests concept re-explanations based on feedback.
+
+---
+
+## 🗃 Database – MongoDB
+
+- Stores doubts, sessions, feedback, and generated content.
+- Optimized for flexible schema and analytics queries.
+
+---
+
+## ☁ Cloud Infrastructure – Google Cloud Platform
+
+- APIs & AI services hosted with load balancing and auto-scaling.
+- Cloud storage supports image/media-based doubt inputs.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+- MongoDB
+
+### Installation
+
+
+npm install
+
+#### Run Server
+
+npm run dev
+
+
+#### Build for Production
+
+npm run build
