@@ -5,7 +5,7 @@ EduAI is an AI-powered web platform enabling real-time student doubt resolution 
 ---
 
 # 🔗 Prototype 
-[EduAI.com](https://pragati-ediai.onrender.com)
+![EduAI.com](https://pragati-ediai.onrender.com)
 
 ## 🖥 Frontend – React.js, Chart.js
 
@@ -22,13 +22,17 @@ EduAI is an AI-powered web platform enabling real-time student doubt resolution 
 
 ### API Routes
 
-GET /        # Live session view
-![Live Session](https://res.cloudinary.com/dwcne31bv/image/upload/v1743887371/lbafjsdtufydpihpd1po.png) 
+## Live session view
+GET /        
+![Live Session](https://res.cloudinary.com/dwcne31bv/image/upload/v1743887629/kbn75hj6d9buoznwxauh.png) 
+![Auto Suggested Poll](https://res.cloudinary.com/dwcne31bv/image/upload/v1743887396/wgwgyurigahdjabfbo2k.png) 
 
-GET /test    # AI-generated test
+## AI-generated test
+GET /test    
 ![Generated Test](https://res.cloudinary.com/dwcne31bv/image/upload/v1743887371/zlvk2ajwiw62mpl4orzr.png) 
 
-GET /post    # Post-session analysis report
+## Post-session analysis report
+GET /post    
 ![Post Analysis](https://res.cloudinary.com/dwcne31bv/image/upload/v1743887375/sw3193xf53x7xolisqvg.png) 
 ---
 
