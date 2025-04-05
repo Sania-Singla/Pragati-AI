@@ -1,26 +1,35 @@
-# EduAI – Smart Doubt Resolution System
+# 📚 EduAI – Smart Doubt Resolution System
 
 EduAI is an AI-powered web platform enabling real-time student doubt resolution and personalized test generation for teachers.
 
 ---
 
+# 🔗 Prototype 
+[EduAI.com](https://pragati-ediai.onrender.com)
+
 ## 🖥 Frontend – React.js, Chart.js
 
-- Built with React.js for responsive student-teacher interface.
-- Chart.js used for interactive analytics visualizations.
-- Students submit doubts; teachers track engagement, assign AI-curated tests.
+- Built with **React.js** for a responsive student-teacher interface  
+- **Chart.js** for interactive analytics visualizations  
+- Students submit doubts; teachers track engagement and assign AI-curated tests
 
 ---
 
 ## 🔁 Backend & APIs – Node.js, Express.js
 
-- RESTful API using Node.js & Express.js.
-- Handles sessions, doubts, topic mapping.
-- Routes:   
-  - GET / (live session)
-  - GET /test  (for auto test generation)
-  - GET /post  (for post analysis report of the session) 
+- RESTful API built with **Node.js** & **Express.js**
+- Handles sessions, doubts, and topic mapping
 
+### API Routes
+
+GET /        # Live session view
+![Live Session](https://res.cloudinary.com/dwcne31bv/image/upload/v1743887371/lbafjsdtufydpihpd1po.png) 
+
+GET /test    # AI-generated test
+![Generated Test](https://res.cloudinary.com/dwcne31bv/image/upload/v1743887371/zlvk2ajwiw62mpl4orzr.png) 
+
+GET /post    # Post-session analysis report
+![Post Analysis](https://res.cloudinary.com/dwcne31bv/image/upload/v1743887375/sw3193xf53x7xolisqvg.png) 
 ---
 
 ## 🧠 AI/ML Engine – SBERT, FAISS, T5, RoBERTa, Hydra
@@ -56,13 +65,14 @@ EduAI is an AI-powered web platform enabling real-time student doubt resolution 
 
 ### Installation
 
-
+```
 npm install
+```
 
 #### Run Server
-
+```
 npm run dev
-
+```
 
 #### Build for Production
 
