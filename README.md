@@ -67,7 +67,6 @@ EduAI is an AI-powered web platform enabling real-time student doubt resolution 
 
 - Node.js
 - npm
-- MongoDB
 
 ### Installation
 
