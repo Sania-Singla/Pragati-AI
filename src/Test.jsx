@@ -263,7 +263,7 @@ export default function Test() {
           </div>
 
           {/* Achievement Toast (would appear conditionally) */}
-          <div className="fixed bottom-4 right-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg shadow-lg max-w-xs animate-bounce">
+          <div className="fixed z-[10] bottom-4 right-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg shadow-lg max-w-xs animate-bounce">
             <div className="flex items-start">
               <div className="text-xl mr-3">🏆</div>
               <div>
