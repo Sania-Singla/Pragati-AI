@@ -109,17 +109,7 @@ const DoubtItem = ({ doubt, isActive, onClick, onRespond }) => {
           <AIInsightCard insight={doubt.aiInsight} />
           
           <div className="space-y-2">
-            {doubt.subDoubts.map(sub => (
-              <div key={sub.id} className="p-2 bg-gray-50 rounded border border-gray-100">
-                <div className="flex justify-between items-start">
-                  <p className="text-sm">{sub.text}</p>
-                  <span className="text-xs text-gray-500">{sub.timestamp}</span>
-                </div>
-                <div className="flex items-center space-x-3 mt-1">
-                  <StudentCount count={sub.students} />
-                </div>
-              </div>
-            ))}
+            {doubt.subDoubts.map(sub => <SubDoubtItem subDoubt={sub}/>)}
           </div>
           
           {doubt.teacherResponse ? (
@@ -462,11 +452,11 @@ export default function CompleteTeachingInterface() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-gray-50 font-sans overflow-hidden">
+    <div className="flex flex-col md:flex-row h-screen bg-gray-50 font-sans overflow-scroll">
       {/* Left Panel - Class Interface */}
       <div className="flex-1 flex flex-col border-r border-gray-200 bg-white">
         {/* Class Header */}
-        <div className="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-[14px] flex items-center justify-between">
+        <div className=" bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-[14px] flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="p-2 bg-white/20 rounded-lg">
               <span className="text-xl">📐</span>
@@ -491,14 +481,14 @@ export default function CompleteTeachingInterface() {
         {/* Video Area */}
         <div className="flex-1 relative bg-gray-900 flex items-center justify-center">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-indigo-900/30"></div>
-          <div className="relative z-10 text-center text-white p-6">
-            <div className="text-6xl mb-6 animate-pulse">▶️</div>
-            <p className="text-2xl font-light mb-2">Live Teaching Session</p>
+          <div className="relative min-h-[200px] z-10 text-center text-white p-6">
+            <div className="text-4xl md:text-6xl mb-2 md:mb-6 animate-pulse">▶️</div>
+            <p className="text-xl md:text-2xl font-light mb-2">Live Teaching Session</p>
             <p className="text-sm opacity-80">Solving Quadratic Equations</p>
           </div>
           
           {/* Floating Controls */}
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800/80 backdrop-blur-sm rounded-full px-4 py-2 flex space-x-4">
+          <div className="absolute bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800/80 backdrop-blur-sm rounded-full px-4 py-2 flex space-x-4">
             <button className="text-white hover:text-indigo-300 transition" title="Toggle Microphone">
               <span className="text-xl">🎤</span>
             </button>
