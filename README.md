@@ -40,8 +40,8 @@ EduAI is an AI-powered web platform enabling real-time student doubt resolution 
 
 ## 🧠 AI/ML Engine – SBERT, FAISS, T5, RoBERTa, Hydra
 
-- SBERT + FAISS: Semantic clustering of doubts.
-- T5: Generates test questions.
+- SBERT + FAISS + PyTorch: Semantic clustering of doubts.
+- T5 + TensorFlow : Generates test questions.
 - RoBERTa: Subject-wise classification.
 - Hydra: Suggests concept re-explanations based on feedback.
 
