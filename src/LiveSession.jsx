@@ -502,7 +502,7 @@ export default function CompleteTeachingInterface() {
         </div>
 
         {/* Session Controls */}
-        <div className="p-4 border-t border-gray-200 bg-white flex justify-between">
+        <div className="p-4 border-t border-gray-200 bg-white flex justify-between gap-2">
           <button className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition" title="Pause the live session">
             Pause Session
           </button>
